@@ -3,11 +3,17 @@ package com.calculated.dimanakhrationts.calculated
 import com.udojava.evalex.Expression
 import java.math.BigDecimal
 
+
 /**
  * Created by dima on 07.09.17.
  */
 
-class Calculator{
+object Calculator{
+
+    enum class Action{
+        EQUAL, CANCEL
+    }
+
 
     @Throws
     fun calculate(expressionString: String): BigDecimal {

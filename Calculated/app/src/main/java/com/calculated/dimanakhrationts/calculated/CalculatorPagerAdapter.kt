@@ -14,8 +14,8 @@ class CalculatorPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment
         when (position){
-            0 -> fragment = BasicCalculatorFragment.newInstance()
-            else -> fragment = AdvancedCalculatorFragment.newInstance()
+            0 -> fragment = CalculatorFragment.newInstance(layoutId = R.layout.fragment_basic_calculator)
+            else -> fragment = CalculatorFragment.newInstance(R.layout.fragment_advanced_calculator)
         }
         return fragment
     }

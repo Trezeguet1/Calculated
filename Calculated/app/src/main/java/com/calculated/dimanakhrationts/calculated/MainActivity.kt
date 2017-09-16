@@ -1,26 +1,49 @@
 package com.calculated.dimanakhrationts.calculated
 
-import android.content.Context
-import android.hardware.input.InputManager
-import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.ScrollView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), BasicCalculatorFragment.OnFragmentInteractionListener, AdvancedCalculatorFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity() , CalculatorFragment.CalculatorFragmentListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         calculatorViewPager.adapter = CalculatorPagerAdapter(supportFragmentManager)
         calculatorEditText.showSoftInputOnFocus = false
-        Log.v("result", Calculator().calculate("3.4*sin(30)^2").toString())
     }
 
-    override fun onFragmentInteraction(uri: Uri) {
+    override fun onExpressionAppend(string: String) {
+        when (calculatorEditText.text.toString() == "0" && string.isNumber()){
+            true -> {
+                calculatorEditText.setText(string)
+                calculatorEditText.setSelection(calculatorEditText.text.length)
+            }
+            false -> {
+                val cursorPosition = calculatorEditText.selectionEnd
+                calculatorEditText.text.insert(cursorPosition, string)
+            }
+        }
 
+    }
+
+    override fun onCalculatorAction(action: Calculator.Action?) {
+        when (action){
+            Calculator.Action.EQUAL -> {
+                val expression = calculatorEditText.text.toString()
+                val result = Calculator.calculate(expression)
+                if (this.calculatorTextView.text != "") {
+                    this.calculatorTextView.append("\n")
+                }
+                this.calculatorTextView.append("$expression=$result")
+                this.calculatorEditText.setText("$result")
+                this.calculatorEditText.setSelection(calculatorEditText.text.count())
+                this.scrollView.post { scrollView.fullScroll(ScrollView.FOCUS_DOWN) }
+            }
+            else -> return
+        }
     }
 
 }

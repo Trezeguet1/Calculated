@@ -9,32 +9,49 @@
     <EditText
         android:id="@+id/calculatorEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
         android:ems="10"
-        android:text=""
+        android:focusableInTouchMode="false"
+        android:inputType="none"
         android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/calculatorViewPager"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
+        app:layout_constraintVertical_weight="2" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/calculatorViewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculatorEditText"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_weight="12">
     </android.support.v4.view.ViewPager>
 
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:background="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/calculatorEditText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/calculatorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="textEnd"
+            android:textSize="24sp" />
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

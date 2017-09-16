@@ -3,205 +3,231 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.calculated.dimanakhrationts.calculated.AdvancedCalculatorFragment">
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <Button
-        android:id="@+id/piBtn"
+        android:id="@+id/powBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="π"
+        android:background="@color/lightButtonColor"
+        android:text="^"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/sinBtn"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/sqrtBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/sqrtBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="√"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/cosBtn"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/powBtn"
         app:layout_constraintRight_toLeftOf="@+id/eBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/eBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
         android:text="e"
-        app:layout_constraintBottom_toTopOf="@+id/cosBtn"
-        app:layout_constraintLeft_toRightOf="@+id/piBtn"
-        app:layout_constraintRight_toLeftOf="@+id/percentBtn"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/percentBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="%"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/tgBtn"
-        app:layout_constraintLeft_toRightOf="@+id/eBtn"
-        app:layout_constraintRight_toLeftOf="@+id/backwardBtn"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/sqrtBtn"
+        app:layout_constraintRight_toLeftOf="@+id/piBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/backwardBtn"
+        android:id="@+id/piBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="1/X"
-        app:layout_constraintBottom_toTopOf="@+id/ctgBtn"
-        app:layout_constraintLeft_toRightOf="@+id/percentBtn"
+        android:background="@color/lightButtonColor"
+        android:text="π"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/expBtn"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/eBtn"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/sinBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
         android:text="sin"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/asinBtn"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/cosBtn"
-        app:layout_constraintTop_toBottomOf="@+id/piBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/powBtn" />
 
     <Button
         android:id="@+id/cosBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
         android:text="cos"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/acosBtn"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@+id/sinBtn"
         app:layout_constraintRight_toLeftOf="@+id/tgBtn"
-        app:layout_constraintTop_toBottomOf="@+id/eBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/sqrtBtn" />
 
     <Button
         android:id="@+id/tgBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
         android:text="tg"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/atgBtn"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@+id/cosBtn"
-        app:layout_constraintRight_toLeftOf="@+id/ctgBtn"
-        app:layout_constraintTop_toBottomOf="@+id/percentBtn" />
+        app:layout_constraintRight_toLeftOf="@+id/expBtn"
+        app:layout_constraintTop_toBottomOf="@+id/eBtn" />
 
     <Button
-        android:id="@+id/ctgBtn"
+        android:id="@+id/expBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="ctg"
-        app:layout_constraintBottom_toTopOf="@+id/actgBtn"
+        android:background="@color/lightButtonColor"
+        android:text="e^x"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/lnBtn"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@+id/tgBtn"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backwardBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/piBtn" />
 
     <Button
         android:id="@+id/asinBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
         android:text="asin"
-        app:layout_constraintBottom_toTopOf="@+id/sqrBtn"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/sinhBtn"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/acosBtn"
         app:layout_constraintTop_toBottomOf="@+id/sinBtn" />
 
     <Button
-        android:id="@+id/sqrBtn"
+        android:id="@+id/lnBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="X^2"
-        app:layout_constraintBottom_toTopOf="@+id/logTenBtn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/pow"
-        app:layout_constraintTop_toBottomOf="@+id/asinBtn" />
+        android:background="@color/lightButtonColor"
+        android:text="ln"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/modBtn"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/atgBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expBtn" />
 
     <Button
-        android:id="@+id/pow"
+        android:id="@+id/atgBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="X^Y"
-        app:layout_constraintBottom_toTopOf="@+id/lnBtn"
-        app:layout_constraintLeft_toRightOf="@+id/sqrBtn"
-        app:layout_constraintRight_toLeftOf="@+id/sqrtBtn"
-        app:layout_constraintTop_toBottomOf="@+id/acosBtn" />
+        android:background="@color/lightButtonColor"
+        android:text="atg"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/tghBtn"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/acosBtn"
+        app:layout_constraintRight_toLeftOf="@+id/lnBtn"
+        app:layout_constraintTop_toBottomOf="@+id/tgBtn" />
 
     <Button
         android:id="@+id/acosBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
         android:text="acos"
-        app:layout_constraintBottom_toTopOf="@+id/pow"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/coshBtn"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@+id/asinBtn"
         app:layout_constraintRight_toLeftOf="@+id/atgBtn"
         app:layout_constraintTop_toBottomOf="@+id/cosBtn" />
 
     <Button
-        android:id="@+id/atgBtn"
+        android:id="@+id/coshBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="atg"
-        app:layout_constraintBottom_toTopOf="@+id/sqrtBtn"
-        app:layout_constraintLeft_toRightOf="@+id/acosBtn"
-        app:layout_constraintRight_toLeftOf="@+id/actgBtn"
-        app:layout_constraintTop_toBottomOf="@+id/tgBtn" />
+        android:background="@color/lightButtonColor"
+        android:text="cosh"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/sinhBtn"
+        app:layout_constraintRight_toLeftOf="@+id/tghBtn"
+        app:layout_constraintTop_toBottomOf="@+id/acosBtn" />
 
     <Button
-        android:id="@+id/actgBtn"
+        android:id="@+id/modBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="actg"
-        app:layout_constraintBottom_toTopOf="@+id/powSqrtBtn"
-        app:layout_constraintLeft_toRightOf="@+id/atgBtn"
+        android:background="@color/lightButtonColor"
+        android:text="mod"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tghBtn"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ctgBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/lnBtn" />
 
     <Button
-        android:id="@+id/sqrtBtn"
+        android:id="@+id/sinhBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="√x"
-        app:layout_constraintBottom_toTopOf="@+id/expBtn"
-        app:layout_constraintLeft_toRightOf="@+id/pow"
-        app:layout_constraintRight_toLeftOf="@+id/powSqrtBtn"
+        android:background="@color/lightButtonColor"
+        android:text="sinh"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/coshBtn"
+        app:layout_constraintTop_toBottomOf="@+id/asinBtn" />
+
+    <Button
+        android:id="@+id/tghBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="tgh"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/coshBtn"
+        app:layout_constraintRight_toLeftOf="@+id/modBtn"
         app:layout_constraintTop_toBottomOf="@+id/atgBtn" />
 
-    <Button
-        android:id="@+id/powSqrtBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="y√x"
-        app:layout_constraintBottom_toTopOf="@+id/signBtn"
-        app:layout_constraintLeft_toRightOf="@+id/sqrtBtn"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/actgBtn" />
-
-    <Button
-        android:id="@+id/lnBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="ln"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/logTenBtn"
-        app:layout_constraintRight_toLeftOf="@+id/expBtn"
-        app:layout_constraintTop_toBottomOf="@+id/pow" />
-
-    <Button
-        android:id="@+id/expBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="e^x"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/lnBtn"
-        app:layout_constraintRight_toLeftOf="@+id/signBtn"
-        app:layout_constraintTop_toBottomOf="@+id/sqrtBtn" />
-
-    <Button
-        android:id="@+id/signBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="+/-"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/expBtn"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/powSqrtBtn" />
-
-    <Button
-        android:id="@+id/logTenBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="log10"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/lnBtn"
-        app:layout_constraintTop_toBottomOf="@+id/sqrBtn" />
 </android.support.constraint.ConstraintLayout>
