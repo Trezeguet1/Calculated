@@ -6,6 +6,11 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+        productFlavors {
+            free {
+                versionName "1.0-free"
+            }
+        }
     defaultConfig {
         applicationId "com.calculated.dimanakhrationts.calculated"
         minSdkVersion 25

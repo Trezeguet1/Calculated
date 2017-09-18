@@ -19,15 +19,55 @@ import android.view.ViewGroup
 open class CalculatorFragment : Fragment() {
 
     private var mLayoutId: Int? = null
-    private val calculatorArgumentButtonClickListener = View.OnClickListener({
-        v -> mListener?.onExpressionAppend(this.expressionFor(v))
+
+
+    private val mCalculatorArgumentButtonClickListener = View.OnClickListener({
+        v ->
+        mDelegate?.let {
+            val expression = expressionFor(v)
+            if (expression.isNumber()){
+                if (it.isNumberEnabled()){
+                    it.onExpressionAppend(expression)
+                }
+            }else if(expression.isBinaryOperator()){
+                if (it.isBinaryOperatorEnabled()){
+                    it.onExpressionAppend(expression)
+                }
+            }else if (expression.isPoint()){
+                if (it.isPointEnabled()) {
+                    it.onExpressionAppend(expression)
+                }
+            }else if(expression.isLeftBracket()){
+                if (it.isLeftBracketEnabled()){
+                    it.onExpressionAppend(expression)
+                }
+            } else if(expression.isRightBracket()){
+                if (it.isRightBracketEnabled()){
+                    it.onExpressionAppend(expression)
+                }
+            }else if(expression.isPowOperator()){
+                if (it.isPowEnabled()){
+                    it.onExpressionAppend(expression)
+                }
+            }else if(expression.isConstant()){
+                if (it.isConstantEnabled()){
+                    it.onExpressionAppend(expression)
+                }
+            }
+            else{
+                if (it.isUnaryOperatorEnabled()){
+                    it.onExpressionAppend(expression)
+                }
+            }
+        }
+
     })
 
-    private val calculatorActionButtonClickListener = View.OnClickListener({
-        v ->  mListener?.onCalculatorAction(this.actionFor(v))
+    private val mCalculatorActionButtonClickListener = View.OnClickListener({
+        v -> mDelegate?.onCalculatorAction(actionFor(v))
     })
 
-    private var mListener: CalculatorFragmentListener? = null
+    private var mDelegate: CalculatorFragmentListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,30 +77,44 @@ open class CalculatorFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, @Nullable container: ViewGroup?, @Nullable savedInstanceState: Bundle?): View? {
-
         var layout: View? = null
         mLayoutId?.let {
             layout = inflater?.inflate(it, container, false)
-
-            layout?.findViewById(R.id.oneBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.twoBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.threeBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.fourBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.fiveBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.sixBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.sevenBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.eightBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.nineBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.zeroBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.pointBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.leftBracketBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.rightBracketBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.plusBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.minusBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.divideBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.multiplyBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.sinBtn)?.setOnClickListener(this.calculatorArgumentButtonClickListener)
-            layout?.findViewById(R.id.equalBtn)?.setOnClickListener(this.calculatorActionButtonClickListener)
+            layout?.findViewById(R.id.oneBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.twoBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.threeBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.fourBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.fiveBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.sixBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.sevenBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.eightBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.nineBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.zeroBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.pointBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.leftBracketBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.rightBracketBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.plusBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.minusBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.divideBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.multiplyBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.sinBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.cosBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.tgBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.acosBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.asinBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.atgBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.sinhBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.coshBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.powBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.sqrtBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.piBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.eBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.lnBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.expBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.tghBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.modBtn)?.setOnClickListener(mCalculatorArgumentButtonClickListener)
+            layout?.findViewById(R.id.equalBtn)?.setOnClickListener(mCalculatorActionButtonClickListener)
+            layout?.findViewById(R.id.cancelBtn)?.setOnClickListener(mCalculatorActionButtonClickListener)
         }
         return layout
     }
@@ -68,7 +122,7 @@ open class CalculatorFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is CalculatorFragmentListener) {
-            mListener = context
+            mDelegate = context
         } else {
             throw RuntimeException(context.toString() + " must implement CalculatorFragmentListener")
         }
@@ -76,7 +130,7 @@ open class CalculatorFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        mListener = null
+        mDelegate = null
     }
 
     private fun expressionFor(button: View): String{
@@ -100,12 +154,20 @@ open class CalculatorFragment : Fragment() {
             R.id.pointBtn -> "."
             R.id.sinBtn -> "sin("
             R.id.cosBtn -> "cos("
-            R.id.eBtn -> "tg("
-            R.id.tgBtn -> "ctg("
-            R.id.powBtn -> "π"
-            R.id.sqrtBtn -> "e"
-            R.id.tghBtn -> "exp("
-            R.id.sinBtn -> "sin("
+            R.id.tgBtn -> "tg("
+            R.id.eBtn -> "e"
+            R.id.asinBtn -> "asin("
+            R.id.acosBtn -> "acos("
+            R.id.atgBtn -> "atg("
+            R.id.sinhBtn -> "sinh("
+            R.id.coshBtn -> "cosh("
+            R.id.tghBtn -> "tgh("
+            R.id.modBtn -> "mod("
+            R.id.lnBtn -> "log("
+            R.id.powBtn -> "^"
+            R.id.expBtn -> "e^"
+            R.id.sqrtBtn -> "sqrt("
+            R.id.piBtn -> "PI"
             else -> ""
         }
     }
@@ -113,6 +175,7 @@ open class CalculatorFragment : Fragment() {
     private fun actionFor(button: View): Calculator.Action?{
         return when (button.id){
             R.id.equalBtn -> Calculator.Action.EQUAL
+            R.id.cancelBtn -> Calculator.Action.CANCEL
             else -> null
         }
     }
@@ -120,6 +183,14 @@ open class CalculatorFragment : Fragment() {
     interface CalculatorFragmentListener {
         fun onExpressionAppend(string: String)
         fun onCalculatorAction(action: Calculator.Action?)
+        fun isUnaryOperatorEnabled(): Boolean
+        fun isPointEnabled(): Boolean
+        fun isBinaryOperatorEnabled(): Boolean
+        fun isLeftBracketEnabled(): Boolean
+        fun isRightBracketEnabled (): Boolean
+        fun isPowEnabled (): Boolean
+        fun isNumberEnabled(): Boolean
+        fun isConstantEnabled (): Boolean
     }
 
     companion object {
@@ -133,4 +204,4 @@ open class CalculatorFragment : Fragment() {
             return fragment
         }
     }
-}// Required empty public constructor
+}
