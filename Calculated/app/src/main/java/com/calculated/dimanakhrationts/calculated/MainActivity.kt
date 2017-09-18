@@ -2,6 +2,7 @@ package com.calculated.dimanakhrationts.calculated
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.widget.ScrollView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,6 +18,23 @@ class MainActivity : AppCompatActivity() , CalculatorFragment.CalculatorFragment
         setContentView(R.layout.activity_main)
         calculatorViewPager.adapter = CalculatorPagerAdapter(supportFragmentManager)
         calculatorEditText.showSoftInputOnFocus = false
+    }
+
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        savedInstanceState?.getStringArrayList("currentExpression")?.let {
+            mCalculatorOperations = it
+        }
+        savedInstanceState?.getCharSequence("history")?.let {
+            calculatorTextView.text = it
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putStringArrayList("currentExpression", mCalculatorOperations)
+        outState?.putCharSequence("history", calculatorTextView.text)
     }
 
     override fun onExpressionAppend(string: String) {
@@ -87,6 +105,15 @@ class MainActivity : AppCompatActivity() , CalculatorFragment.CalculatorFragment
         }
     }
 
+    override fun isMinusEnabled(): Boolean {
+        if (mCalculatorOperations.isEmpty()){
+            return true
+        }else{
+            val last = mCalculatorOperations.last()
+            return !last.isMinusOperator() && !last.isPoint()
+        }
+    }
+
     override fun isBinaryOperatorEnabled(): Boolean {
         if (mCalculatorOperations.isEmpty()){
             return false
@@ -138,7 +165,7 @@ class MainActivity : AppCompatActivity() , CalculatorFragment.CalculatorFragment
             return false
         }else{
             val last = mCalculatorOperations.last()
-            return last.isNumber() || last.isConstant()
+            return last.isNumber() || last.isConstant() || last.isRightBracket()
         }
     }
 

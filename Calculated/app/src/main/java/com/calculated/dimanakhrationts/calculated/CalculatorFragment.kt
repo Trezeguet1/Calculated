@@ -33,6 +33,10 @@ open class CalculatorFragment : Fragment() {
                 if (it.isBinaryOperatorEnabled()){
                     it.onExpressionAppend(expression)
                 }
+            }else if(expression.isMinusOperator()){
+                if (it.isMinusEnabled()){
+                    it.onExpressionAppend(expression)
+                }
             }else if (expression.isPoint()){
                 if (it.isPointEnabled()) {
                     it.onExpressionAppend(expression)
@@ -191,6 +195,7 @@ open class CalculatorFragment : Fragment() {
         fun isPowEnabled (): Boolean
         fun isNumberEnabled(): Boolean
         fun isConstantEnabled (): Boolean
+        fun isMinusEnabled (): Boolean
     }
 
     companion object {
