@@ -38,7 +38,11 @@ fun String.isUnaryOperator(): Boolean{
 }
 
 fun String.isBinaryOperator(): Boolean{
-    return "+-/*".contains(this) && this.length == 1
+    return "+/*".contains(this) && this.length == 1
+}
+
+fun String.isMinusOperator(): Boolean{
+    return this == "-"
 }
 
 fun String.isLeftBracket(): Boolean{

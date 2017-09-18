@@ -14,7 +14,6 @@ object Calculator{
         EQUAL, CANCEL
     }
 
-
     @Throws
     fun calculate(expressionString: String): BigDecimal {
         val expression = Expression(expressionString)
