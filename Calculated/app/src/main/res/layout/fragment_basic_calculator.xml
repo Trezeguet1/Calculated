@@ -1,0 +1,295 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/cancelBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="C"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/oneBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/leftBracketBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/leftBracketBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="("
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/twoBtn"
+        app:layout_constraintLeft_toRightOf="@+id/cancelBtn"
+        app:layout_constraintRight_toLeftOf="@+id/rightBracketBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/rightBracketBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text=")"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/threeBtn"
+        app:layout_constraintLeft_toRightOf="@+id/leftBracketBtn"
+        app:layout_constraintRight_toLeftOf="@+id/equalBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/equalBtn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:text="="
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/plusBtn"
+        app:layout_constraintLeft_toRightOf="@+id/rightBracketBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/oneBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/fourBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/twoBtn"
+        app:layout_constraintTop_toBottomOf="@+id/cancelBtn" />
+
+    <Button
+        android:id="@+id/twoBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/fiveBtn"
+        app:layout_constraintLeft_toRightOf="@+id/oneBtn"
+        app:layout_constraintRight_toLeftOf="@+id/threeBtn"
+        app:layout_constraintTop_toBottomOf="@+id/leftBracketBtn" />
+
+    <Button
+        android:id="@+id/threeBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/sixBtn"
+        app:layout_constraintLeft_toRightOf="@+id/twoBtn"
+        app:layout_constraintRight_toLeftOf="@+id/plusBtn"
+        app:layout_constraintTop_toBottomOf="@+id/rightBracketBtn" />
+
+    <Button
+        android:id="@+id/plusBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/minusBtn"
+        app:layout_constraintLeft_toRightOf="@+id/threeBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/equalBtn" />
+
+    <Button
+        android:id="@+id/fourBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/sevenBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/fiveBtn"
+        app:layout_constraintTop_toBottomOf="@+id/oneBtn" />
+
+    <Button
+        android:id="@+id/sevenBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="7"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/zeroBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/eightBtn"
+        app:layout_constraintTop_toBottomOf="@+id/fourBtn" />
+
+    <Button
+        android:id="@+id/eightBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="8"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/zeroBtn"
+        app:layout_constraintLeft_toRightOf="@+id/sevenBtn"
+        app:layout_constraintRight_toLeftOf="@+id/nineBtn"
+        app:layout_constraintTop_toBottomOf="@+id/fiveBtn" />
+
+    <Button
+        android:id="@+id/fiveBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/eightBtn"
+        app:layout_constraintLeft_toRightOf="@+id/fourBtn"
+        app:layout_constraintRight_toLeftOf="@+id/sixBtn"
+        app:layout_constraintTop_toBottomOf="@+id/twoBtn" />
+
+    <Button
+        android:id="@+id/sixBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="6"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/nineBtn"
+        app:layout_constraintLeft_toRightOf="@+id/fiveBtn"
+        app:layout_constraintRight_toLeftOf="@+id/minusBtn"
+        app:layout_constraintTop_toBottomOf="@+id/threeBtn" />
+
+    <Button
+        android:id="@+id/minusBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/multiplyBtn"
+        app:layout_constraintLeft_toRightOf="@+id/sixBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plusBtn" />
+
+    <Button
+        android:id="@+id/nineBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="9"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/pointBtn"
+        app:layout_constraintLeft_toRightOf="@+id/eightBtn"
+        app:layout_constraintRight_toLeftOf="@+id/multiplyBtn"
+        app:layout_constraintTop_toBottomOf="@+id/sixBtn" />
+
+    <Button
+        android:id="@+id/multiplyBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="*"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/divideBtn"
+        app:layout_constraintLeft_toRightOf="@+id/nineBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minusBtn" />
+
+    <Button
+        android:id="@+id/zeroBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/lightButtonColor"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/nineBtn"
+        app:layout_constraintTop_toBottomOf="@+id/eightBtn" />
+
+    <Button
+        android:id="@+id/pointBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="."
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/zeroBtn"
+        app:layout_constraintRight_toLeftOf="@+id/divideBtn"
+        app:layout_constraintTop_toBottomOf="@+id/nineBtn" />
+
+    <Button
+        android:id="@+id/divideBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightButtonColor"
+        android:text="/"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
+        android:typeface="sans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/pointBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/multiplyBtn" />
+</android.support.constraint.ConstraintLayout>
